@@ -1,0 +1,5 @@
+[kubernetesServer]
+192.168.64.2 ansible_ssh_user=ennur
+
+[testServer]
+192.168.64.4 ansible_ssh_user=ubuntu
