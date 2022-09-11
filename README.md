@@ -6,6 +6,14 @@
 
 VM'lerin içerisinde kubeadm kurulur.
 
+## Kind ile multi cluster kurulumu
+
+Control machine'e kind kullanarak, kubernetes klasöründe bulunan ```cluster.yaml```dosyası ile cluster kurulur.
+
+```shell
+kind create cluster --config kind-3nodes.yaml
+```
+
 ## Jenkins kurulumu
 
 ```jenkins``` klasöründe bulunan yaml dosyaları, ```control machine``` içerisindeki cluster'da apply edilir.
