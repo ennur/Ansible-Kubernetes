@@ -18,7 +18,7 @@ kind create cluster --config cluster.yaml
 
 ```jenkins``` klasöründe bulunan yaml dosyaları, ```control machine``` içerisindeki cluster'da apply edilir.
 
-## Scriptin yüklemmesi
+## Scriptin yüklenmesi
 
 Ana dizinde bulunan run.sh scripti çalıştırılır.
 
