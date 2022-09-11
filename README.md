@@ -29,3 +29,8 @@ Ansible, ```get-crt.py``` script'ini yükler ve çalıştırır.
 ## Sertifikaların Alınması
 
 Jenkins ssh ile sunucuya bağlanıp, script çıktısını alır.
+
+```shell
+scp user@host:/tmp/output.txt output.txt
+cat output.txt
+
