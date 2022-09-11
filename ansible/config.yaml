@@ -1,1 +1,35 @@
+- name: Get pki
+  hosts: all
+  
+  vars: 
+    file_name: "get-crt.py"
+    script_output_file: "output.txt"
 
+  tasks:
+    
+    - block: 
+      - name: Check docker exists
+        shell:
+          cmd: service docker status
+        register : docker_status
+
+      - name: Transfer the script
+        ansible.builtin.copy:
+          src: ./{{file_name}}
+          dest: ~/{{file_name}}
+
+      - name: Execute the script
+        command: python3 ~/{{file_name}}
+      
+      - name: Get ip
+        shell:
+          cmd: hostname -I | awk '{print $1}'
+        register: ip_addr
+
+      - name: Add hostname in output file  
+        lineinfile:
+          path: /tmp/{{script_output_file}}
+          line: host-ip = {{ip_addr.stdout}}     
+
+      when: (inventory_hostname in groups['kubernetesServer'] and '"active" in docker_status.stdout')   
+ 
